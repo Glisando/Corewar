@@ -110,7 +110,7 @@ unsigned int				magic_with_link2(t_to_code *tmp, char *a);
 unsigned int				convert_t_reg(char *a);
 unsigned int				convert_t_dir(t_to_code *tmp, char *a);
 unsigned int				convert_t_ind(t_to_code *tmp, char *a);
-void						zaebali_nazv(t_to_code *tmp, int i, char flag);
+void						func(t_to_code *tmp, int i, char flag);
 void						convert_args(void);
 char						*make_name(char *a);
 void						need(t_to_code *tmp, char *a);
@@ -122,9 +122,9 @@ void						nado_1(void);
 void						nado_2(t_main *main_asm, char *name);
 void						nado_3(int fd, t_main **main_asm);
 void						free_2(t_main *main_asm, char *name);
-int							pzdc1(t_main *main_asm);
-int							pzdc2(int fd, int i, char **av);
-void						pzdc(char *line);
+int							dec1(t_main *main_asm);
+int							dec2(int fd, int i, char **av);
+void						dec(char *line);
 void						last_f(void);
 void						add_to_cmndlist(t_to_code *a);
 char						*ft_copy_n(char *src, int n);
@@ -149,21 +149,21 @@ char						*check_t_ind_reg(char *param, t_to_code *f,
 							unsigned char *op, int position);
 char						*check_t_ind_reg_dir(char *param, t_to_code *f,
 							unsigned char *op, int position);
-void						hvatit_1(int a, int *sdvig, unsigned int *mask,
+void						org_1(int a, int *sdvig, unsigned int *mask,
 							int *flag);
 int							get_need_f(char *param, int a, t_comand *f,
 							t_to_code *tmp);
 void						f_full_check(char *line, t_comand *f,
 							t_to_code *tmp);
-void						hvatit_4(t_to_code **tmp,
+void						org_4(t_to_code **tmp,
 							t_comand **f_list, int i);
-void						hvatit_5(t_comand ***f_list, unsigned char *i,
+void						org_5(t_comand ***f_list, unsigned char *i,
 							int *j);
 void						check_f(t_to_code *tmp, char *line);
 void						check_label(char *name);
-void						hvatit_6(int *i, char *flag, t_to_code **tmp,
+void						org_6(int *i, char *flag, t_to_code **tmp,
 							int *j);
-void						hvatit_7(t_to_code **tmp, char *line, int i, int j);
+void						org_7(t_to_code **tmp, char *line, int i, int j);
 void						pars_two(char *line);
 void						write_int(int fd, unsigned int m);
 void						write_short(int fd, unsigned int mm);

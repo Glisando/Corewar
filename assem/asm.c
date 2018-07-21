@@ -33,7 +33,7 @@ void	free_2(t_main *main_asm, char *name)
 		free(main_asm);
 }
 
-int		pzdc1(t_main *main_asm)
+int		dec1(t_main *main_asm)
 {
 	if (g_error > 0 || ft_strlen(main_asm->name) > PROG_NAME_LENGTH
 		|| ft_strlen(main_asm->comment) > COMMENT_LENGTH
@@ -42,7 +42,7 @@ int		pzdc1(t_main *main_asm)
 	return (0);
 }
 
-int		pzdc2(int fd, int i, char **av)
+int		dec2(int fd, int i, char **av)
 {
 	if (fd < 0 || ft_strlen(av[i]) < 3
 		|| av[i][ft_strlen(av[i]) - 1] != 's'
@@ -64,13 +64,13 @@ int		main(int ac, char **av)
 	while (++i < ac)
 	{
 		fd = open(av[i], O_RDONLY);
-		if (pzdc2(fd, i, av))
+		if (dec2(fd, i, av))
 			ft_printf("wrong file n-%i\n", i - 1);
 		else
 		{
 			nado_3(fd, &main_asm);
 			name = make_name(av[i]);
-			if (pzdc1(main_asm))
+			if (dec1(main_asm))
 				nado_2(main_asm, name);
 			else if (ft_printf("Congratulation, file %s was made!\n", name))
 				start_write(make_name(av[i]), main_asm);

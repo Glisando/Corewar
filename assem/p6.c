@@ -12,7 +12,7 @@
 
 #include "asm.h"
 
-void	hvatit_5(t_comand ***f_list, unsigned char *i, int *j)
+void	org_5(t_comand ***f_list, unsigned char *i, int *j)
 {
 	*j = 0;
 	*i = 0;
@@ -27,7 +27,7 @@ void	check_f(t_to_code *tmp, char *line)
 	int					j;
 	char				*tmp2;
 
-	hvatit_5(&f_list, &i, &j);
+	org_5(&f_list, &i, &j);
 	if (line[i] == '#')
 		return ;
 	while (line[j] != ' ' && line[j] != '\t' && line[j] != '\0')
@@ -39,7 +39,7 @@ void	check_f(t_to_code *tmp, char *line)
 		if (ft_strequ(tmp2, f_list[i - 1]->name))
 		{
 			j = 1;
-			hvatit_4(&tmp, f_list, i);
+			org_4(&tmp, f_list, i);
 			f_full_check(&line[ft_strlen(tmp2)], f_list[i - 1], tmp);
 			add_to_cmndlist(tmp);
 		}
@@ -65,7 +65,7 @@ void	check_label(char *name)
 	}
 }
 
-void	hvatit_6(int *i, char *flag, t_to_code **tmp, int *j)
+void	org_6(int *i, char *flag, t_to_code **tmp, int *j)
 {
 	*j = 0;
 	*tmp = NULL;
@@ -73,7 +73,7 @@ void	hvatit_6(int *i, char *flag, t_to_code **tmp, int *j)
 	*i = 0;
 }
 
-void	hvatit_7(t_to_code **tmp, char *line, int i, int j)
+void	org_7(t_to_code **tmp, char *line, int i, int j)
 {
 	(*tmp) = (t_to_code *)ft_memalloc(sizeof(t_to_code));
 	(*tmp)->lbl = ft_copy_n(&line[i], j);

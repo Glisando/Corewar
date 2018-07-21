@@ -19,7 +19,7 @@ void	pars_two(char *line)
 	t_to_code		*tmp;
 	int				j;
 
-	hvatit_6(&i, &flag, &tmp, &j);
+	org_6(&i, &flag, &tmp, &j);
 	while (line[i] == ' ' || line[i] == '\t')
 		i++;
 	if (line[i] == '#')
@@ -30,7 +30,7 @@ void	pars_two(char *line)
 		ft_printf("error in line %d\n", g_line);
 	if (j > 0 && line[i + j - 1] == ':')
 	{
-		hvatit_7(&tmp, line, i, j);
+		org_7(&tmp, line, i, j);
 		flag = 1;
 	}
 	if (flag == 1 && (i += j) >= 1)

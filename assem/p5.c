@@ -36,7 +36,7 @@ char	*check_t_ind_reg_dir(char *param, t_to_code *f,
 	return (NULL);
 }
 
-void	hvatit_1(int a, int *sdvig, unsigned int *mask, int *flag)
+void	org_1(int a, int *sdvig, unsigned int *mask, int *flag)
 {
 	*sdvig = (8 * (3 - a));
 	*flag = 0;
@@ -52,7 +52,7 @@ int		get_need_f(char *param, int a, t_comand *f, t_to_code *tmp)
 	unsigned char	op;
 
 	op = 0;
-	hvatit_1(a, &sdvig, &mask, &flag);
+	org_1(a, &sdvig, &mask, &flag);
 	if (((f->args & mask) >> sdvig) == 0x01)
 		tmp->ar[a - 1] = check_t_dir(param, tmp, &op, a);
 	else if (((f->args & mask) >> sdvig) == 0x02)
@@ -68,7 +68,7 @@ int		get_need_f(char *param, int a, t_comand *f, t_to_code *tmp)
 	else if (((f->args & mask) >> sdvig) == 0xff)
 		tmp->ar[a - 1] = check_t_ind_reg_dir(param, tmp, &op, a);
 	else
-		ft_printf("kakoito pzdc\n");
+		ft_printf("kakoito dec\n");
 	tmp->op = tmp->op | op;
 	return (flag);
 }
@@ -102,7 +102,7 @@ void	f_full_check(char *line, t_comand *f, t_to_code *tmp)
 	free(args);
 }
 
-void	hvatit_4(t_to_code **tmp, t_comand **f_list, int i)
+void	org_4(t_to_code **tmp, t_comand **f_list, int i)
 {
 	(*tmp) = (t_to_code *)ft_memalloc(sizeof(t_to_code));
 	(*tmp)->first_b = i;

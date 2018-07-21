@@ -23,7 +23,7 @@ unsigned int	convert_t_ind(t_to_code *tmp, char *a)
 	return (res);
 }
 
-void			zaebali_nazv(t_to_code *tmp, int i, char flag)
+void			func(t_to_code *tmp, int i, char flag)
 {
 	if (flag == 1)
 		tmp->args[i] = convert_t_reg(tmp->ar[i]);
@@ -43,7 +43,7 @@ void			convert_args(void)
 	while (tmp)
 	{
 		while (++i < tmp->count)
-			zaebali_nazv(tmp, i,
+			func(tmp, i,
 				(tmp->op & (3 << (2 * (3 - i)))) >> (2 * (3 - i)));
 		i = -1;
 		tmp = tmp->next;
